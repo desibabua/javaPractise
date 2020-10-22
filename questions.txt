@@ -1,0 +1,18 @@
+GCD - Write a program that provides the greatest common divisor of two given numbers
+Input: 2 numbers
+LCM - Write a program that provides the least common multiple of two given numbers
+Input: 2 numbers
+Simple Interest - Write a program that calculates the simple interest on a given sum with a rate of interest over a given time period.
+Input: 3 numbers (principal, rate of interest, period)
+Compound Interest - Write a program that calculates the compound interest on a given sum with a rate of interest over a given time period.
+Input: 3 numbers (principal, rate of interest, period)
+Temperature Conversion - Write a program that converts a temperature from fahrenheit to centigrade.
+Input: 1 number (temperature in Fahrenheit)
+Temperature Conversion - Write a program that converts a temperature from centigrade to fahrenheit.
+Input: 1 number (temperature in Celsius)
+Greatest of three numbers - Write a program that calculates the largest of three numbers
+Input: 3 numbers
+Fibonacci - Write a program that PRINTS the fibonacci series of n terms
+Input: 1 number(number of terms to print)
+Multiplication Table - Write a program that will PRINT a multiplication table of any number 'm' up until a number 'n'. So, m*1, m*2....m*n.
+Input: 2 numbers (m and n)
