@@ -22,7 +22,9 @@ public class HCF {
       num1 = num2;
       num2 = remainder;
     }
+
+    int hcf = num1;
     
-    System.out.println("HCF of " + args[0] + " and " + args[1] + " is " + num1);
+    System.out.println("HCF of " + args[0] + " and " + args[1] + " is " + hcf);
   }
 }
