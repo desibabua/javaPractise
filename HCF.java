@@ -15,7 +15,7 @@ public class HCF {
   }
 
   public static int getHcf(int num1, int num2) {
-    int hcf = Math.max(num1, num2);
+    int hcf = Math.min(num1, num2);
 
     while(!isFactor(num1, hcf) || !isFactor(num2, hcf)) {
       hcf--;
