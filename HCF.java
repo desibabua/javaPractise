@@ -15,14 +15,20 @@ public class HCF {
   }
 
   public static int getHcf(int num1, int num2) {
-    int remainder = num2;
+    int hcf = 1;
+    int hcfLimit = Math.min(num1, num2);
 
-    while (remainder != 0) {
-      remainder = num1 % num2;
-      num1 = num2;
-      num2 = remainder;
+    for (int probableHcf = hcfLimit; probableHcf > 0; probableHcf--) {
+      if (isFactor(num1, probableHcf) && isFactor(num2, probableHcf)) {
+        hcf = probableHcf;
+        break;
+      }
     }
 
-    return num1;
+    return hcf;
+  }
+
+  public static boolean isFactor(int num1, int num2) {
+    return num1 % num2 == 0;
   }
 }

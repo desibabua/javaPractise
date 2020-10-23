@@ -7,6 +7,10 @@ public class Fibonacci {
     }
 
     int noOfTerms = Integer.parseInt((args[0]));
+    displayFibonacci(noOfTerms);
+  }
+
+  public static void displayFibonacci(int noOfTerms) {
     for (int term = 0; term < noOfTerms; term++) {
       System.out.println(getFibonacci(term));
     }
