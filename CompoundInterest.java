@@ -17,6 +17,6 @@ public class CompoundInterest {
 
   public static double getCi(int principle, int interestRate, int period) {
     double rate = interestRate / 100.0;
-    return principle * Math.pow((1 + rate), period);
+    return principle * Math.pow((1 + rate), period) - principle;
   }
 }
