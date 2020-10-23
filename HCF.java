@@ -28,7 +28,7 @@ public class HCF {
     return hcf;
   }
 
-  public static boolean isFactor(int num1, int num2) {
-    return num1 % num2 == 0;
+  public static boolean isFactor(int number, int probableFactor) {
+    return number % probableFactor == 0;
   }
 }
