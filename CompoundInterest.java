@@ -1,21 +1,22 @@
 public class CompoundInterest {
 
   public static void main(String[] args) {
-    String msg = "Arguments length not matched";
-    if (args.length == 3) {
-      int p = Integer.parseInt(args[0]);
-      double r = Integer.parseInt(args[1]) / 100.0;
-      int t = Integer.parseInt(args[2]);
-      double finalAmount = p;
-
-      while (t > 0) {
-        finalAmount *= (1 + r);
-        t--;
-      }
-
-      double ci = finalAmount - p;
-      msg = "compound interest is " + ci;
+    if (args.length < 3) {
+      System.out.println("Insufficient arguments");
+      return;
     }
+
+    int principle = Integer.parseInt(args[0]);
+    int interestRate = Integer.parseInt(args[1]);
+    int period = Integer.parseInt(args[2]);
+    double ci = getCi(principle, interestRate, period);
+
+    String msg = "compound interest is " + ci;
     System.out.println(msg);
+  }
+
+  public static double getCi(int principle, int interestRate, int period) {
+    double rate = interestRate / 100.0;
+    return principle * Math.pow((1 + rate), period);
   }
 }

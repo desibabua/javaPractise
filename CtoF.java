@@ -1,13 +1,19 @@
 public class CtoF {
 
   public static void main(String[] args) {
-    String msg = "Arguments length not matched";
-    if (args.length == 1) {
-      int centigrade = Integer.parseInt(args[0]);
-      double fahrenheit = ((centigrade * 9) / 5.0) + 32;
-
-      msg = centigrade + " °C is equal to " + fahrenheit + " °F";
+    if (args.length < 1) {
+      System.out.println("Insufficient arguments");
+      return;
     }
+
+    int centigrade = Integer.parseInt(args[0]);
+    double fahrenheit = convertToFahrenheit(centigrade);
+
+    String msg = centigrade + " °C is equal to " + fahrenheit + " °F";
     System.out.println(msg);
+  }
+
+  public static double convertToFahrenheit(int centigrade) {
+    return ((centigrade * 9) / 5.0) + 32;
   }
 }
