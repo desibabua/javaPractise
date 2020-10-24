@@ -8,12 +8,15 @@ public class MyArray {
     printArray(repeat(5, 4));
     printArray(repeat(3, 6));
 
-    System.out.println(getHighest(range(1,5)));
-    System.out.println(getHighest(range(10,5,-1)));
+    System.out.println(getHighest(range(1, 5)));
+    System.out.println(getHighest(range(10, 5, -1)));
+    
+    System.out.println(getAverage(range(1, 5))); // 2.5
+    System.out.println(getAverage(range(1, 10, 2))); // 5
   }
 
-  public static void printArray(int[] array) {
-    for (int element : array) {
+  public static void printArray(int[] numList) {
+    for (int element : numList) {
       System.out.print(element);
       System.out.print(" ");
     }
@@ -52,14 +55,22 @@ public class MyArray {
     return newArray;
   }
 
-  public static int getHighest(int[] array) {
-    int highest = array[0];
-    for (int index = 0; index < array.length; index++) {
-      if (highest < array[index]) {
-        highest = array[index];
+  public static int getHighest(int[] numList) {
+    int highest = numList[0];
+    for (int index = 0; index < numList.length; index++) {
+      if (highest < numList[index]) {
+        highest = numList[index];
       }
     }
 
     return highest;
+  }
+
+  public static double getAverage(int[] numList) {
+    int sum = 0;
+    for (int number : numList) {
+      sum += number;
+    }
+    return sum / (double) numList.length;
   }
 }
