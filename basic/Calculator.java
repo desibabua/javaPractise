@@ -5,10 +5,11 @@ public class Calculator {
     int num2 = Integer.parseInt(args[1]);
     String symbol = args[2];
 
-    performOps(num1, num2, symbol);
+    double result = performOps(num1, num2, symbol);
+    System.out.println(num1 + " " + symbol + " " + num2 + " = " + result);
   }
 
-  public static void performOps(double num1, double num2, String symbol) {
+  public static double performOps(double num1, double num2, String symbol) {
     double result = 0 ;
     switch (symbol) {
       case "+":
@@ -27,8 +28,7 @@ public class Calculator {
         result = getRemainder(num1, num2);
         break;
     }
-
-    System.out.println(num1 + " " + symbol + " " + num2 + " = " + result);
+    return result;
   }
 
   public static double getSum(double num1, double num2) {
