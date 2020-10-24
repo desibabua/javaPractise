@@ -4,6 +4,9 @@ public class MyArray {
     printArray(range(1, 5));
     printArray(range(1, 10, 2));
     printArray(range(5, 1, -1));
+
+    printArray(repeat(5, 4));
+    printArray(repeat(3, 6));
   }
 
   public static void printArray(int[] array) {
@@ -34,5 +37,15 @@ public class MyArray {
     }
 
     return range;
+  }
+
+  public static int[] repeat(int number, int times) {
+    int[] newArray = new int[times];
+
+    for (int index = 0; index < times; index++) {
+      newArray[index] = number;
+    }
+
+    return newArray;
   }
 }
