@@ -6,7 +6,7 @@ public class MyArray {
       System.out.print(" ");
     }
 
-    System.out.print('\n');
+    System.out.print("-\n");
   }
 
   public static int[] range(int from, int to, int step) {
@@ -36,10 +36,9 @@ public class MyArray {
 
   public static int getHighest(int[] numbers) {
     int highest = numbers[0];
-    for (int index = 0; index < numbers.length; index++) {
-      if (highest < numbers[index]) {
-        highest = numbers[index];
-      }
+
+    for (int number : numbers) {
+      if(highest < number) highest = number;
     }
 
     return highest;
