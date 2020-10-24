@@ -1,4 +1,4 @@
-public class MyArray {
+public class NumArray {
 
   public static void printArray(int[] numbers) {
     for (int element : numbers) {
@@ -59,7 +59,7 @@ public class MyArray {
     return true;
   }
 
-  public static boolean areEqual(char[] charArr1, char[] charArr2) {
+  public static boolean areEqual(int[] charArr1, int[] charArr2) {
     if (charArr1.length != charArr2.length) return false;
 
     for (int index = 0; index < charArr1.length; index++) {
@@ -122,15 +122,6 @@ public class MyArray {
     int[] numbers = { 1, 1, 3 };
     System.out.println(isAscending(numbers));
     System.out.println(isAscending(range(1, 5)));
-
-    char[] chars1 = { 'a', 'b', 'c', 'd' };
-    char[] chars2 = { 'a', 'b', 'c', 'd' };
-    char[] chars3 = { 'a', 'b' };
-    char[] chars4 = { 'a', 'b', 'c', 'e' };
-
-    System.out.println(areEqual(chars1, chars2));
-    System.out.println(areEqual(chars1, chars3));
-    System.out.println(areEqual(chars1, chars4));
 
     printArray(concat(range(1, 5), range(5, 0, -1)));
 
