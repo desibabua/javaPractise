@@ -10,13 +10,17 @@ public class MyArray {
 
     System.out.println(getHighest(range(1, 5)));
     System.out.println(getHighest(range(10, 5, -1)));
-    
+
     System.out.println(getAverage(range(1, 5))); // 2.5
     System.out.println(getAverage(range(1, 10, 2))); // 5
+
+    int[] numbers = { 1, 1, 3 };
+    System.out.println(isAscending(numbers));
+    System.out.println(isAscending(range(1, 5)));
   }
 
-  public static void printArray(int[] numList) {
-    for (int element : numList) {
+  public static void printArray(int[] numbers) {
+    for (int element : numbers) {
       System.out.print(element);
       System.out.print(" ");
     }
@@ -55,22 +59,29 @@ public class MyArray {
     return newArray;
   }
 
-  public static int getHighest(int[] numList) {
-    int highest = numList[0];
-    for (int index = 0; index < numList.length; index++) {
-      if (highest < numList[index]) {
-        highest = numList[index];
+  public static int getHighest(int[] numbers) {
+    int highest = numbers[0];
+    for (int index = 0; index < numbers.length; index++) {
+      if (highest < numbers[index]) {
+        highest = numbers[index];
       }
     }
 
     return highest;
   }
 
-  public static double getAverage(int[] numList) {
+  public static double getAverage(int[] numbers) {
     int sum = 0;
-    for (int number : numList) {
+    for (int number : numbers) {
       sum += number;
     }
-    return sum / (double) numList.length;
+    return sum / (double) numbers.length;
+  }
+
+  public static boolean isAscending(int[] numbers) {
+    for (int index = 0; index < numbers.length - 1; index++) {
+      if (numbers[index] >= numbers[index + 1]) return false;
+    }
+    return true;
   }
 }
