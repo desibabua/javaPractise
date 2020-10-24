@@ -17,6 +17,17 @@ public class MyArray {
     int[] numbers = { 1, 1, 3 };
     System.out.println(isAscending(numbers));
     System.out.println(isAscending(range(1, 5)));
+
+    char[] chars1 = { 'a', 'b', 'c', 'd' };
+    char[] chars2 = { 'a', 'b', 'c', 'd' };
+    char[] chars3 = { 'a', 'b' };
+    char[] chars4 = { 'a', 'b', 'c', 'e' };
+
+    System.out.println(areCharactersEqual(chars1, chars2));
+    System.out.println(areCharactersEqual(chars1, chars3));
+    System.out.println(areCharactersEqual(chars1, chars4));
+
+    printArray(concat(range(1, 5), range(5, 0, -1)));
   }
 
   public static void printArray(int[] numbers) {
@@ -83,5 +94,28 @@ public class MyArray {
       if (numbers[index] >= numbers[index + 1]) return false;
     }
     return true;
+  }
+
+  public static boolean areCharactersEqual(char[] charArr1, char[] charArr2) {
+    if (charArr1.length != charArr2.length) return false;
+
+    for (int index = 0; index < charArr1.length; index++) {
+      if (charArr1[index] != charArr2[index]) return false;
+    }
+
+    return true;
+  }
+
+  public static int[] concat(int[] numbers, int[] additionalNumbers) {
+    int[] allNumbers = new int[numbers.length + additionalNumbers.length];
+
+    for (int index = 0; index < allNumbers.length; index++) {
+      allNumbers[index] =
+        index < numbers.length
+          ? numbers[index]
+          : additionalNumbers[index - numbers.length];
+    }
+
+    return allNumbers;
   }
 }
