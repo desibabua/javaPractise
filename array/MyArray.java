@@ -7,6 +7,9 @@ public class MyArray {
 
     printArray(repeat(5, 4));
     printArray(repeat(3, 6));
+
+    System.out.println(getHighest(range(1,5)));
+    System.out.println(getHighest(range(10,5,-1)));
   }
 
   public static void printArray(int[] array) {
@@ -47,5 +50,16 @@ public class MyArray {
     }
 
     return newArray;
+  }
+
+  public static int getHighest(int[] array) {
+    int highest = array[0];
+    for (int index = 0; index < array.length; index++) {
+      if (highest < array[index]) {
+        highest = array[index];
+      }
+    }
+
+    return highest;
   }
 }
