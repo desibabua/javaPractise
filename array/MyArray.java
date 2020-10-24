@@ -1,38 +1,5 @@
 public class MyArray {
 
-  public static void main(String[] args) {
-    printArray(range(1, 5));
-    printArray(range(1, 10, 2));
-    printArray(range(5, 1, -1));
-
-    printArray(repeat(5, 4));
-    printArray(repeat(3, 6));
-
-    System.out.println(getHighest(range(1, 5)));
-    System.out.println(getHighest(range(10, 5, -1)));
-
-    System.out.println(getAverage(range(1, 5))); // 2.5
-    System.out.println(getAverage(range(1, 10, 2))); // 5
-
-    int[] numbers = { 1, 1, 3 };
-    System.out.println(isAscending(numbers));
-    System.out.println(isAscending(range(1, 5)));
-
-    char[] chars1 = { 'a', 'b', 'c', 'd' };
-    char[] chars2 = { 'a', 'b', 'c', 'd' };
-    char[] chars3 = { 'a', 'b' };
-    char[] chars4 = { 'a', 'b', 'c', 'e' };
-
-    System.out.println(areCharactersEqual(chars1, chars2));
-    System.out.println(areCharactersEqual(chars1, chars3));
-    System.out.println(areCharactersEqual(chars1, chars4));
-
-    printArray(concat(range(1, 5), range(5, 0, -1)));
-
-    int[] array = { 1, 2, 0, 2, 3, 0, 0, 2 };
-    printArray(removeZeroes(array));
-  }
-
   public static void printArray(int[] numbers) {
     for (int element : numbers) {
       System.out.print(element);
@@ -40,16 +7,6 @@ public class MyArray {
     }
 
     System.out.print('\n');
-  }
-
-  public static int[] range(int from, int to) {
-    int[] range = new int[to - from];
-
-    for (int index = 0; index < range.length; index++) {
-      range[index] = index + from;
-    }
-
-    return range;
   }
 
   public static int[] range(int from, int to, int step) {
@@ -61,6 +18,10 @@ public class MyArray {
     }
 
     return range;
+  }
+
+  public static int[] range(int from, int to) {
+    return range(from, to, 1);
   }
 
   public static int[] repeat(int number, int times) {
@@ -99,7 +60,7 @@ public class MyArray {
     return true;
   }
 
-  public static boolean areCharactersEqual(char[] charArr1, char[] charArr2) {
+  public static boolean areEqual(char[] charArr1, char[] charArr2) {
     if (charArr1.length != charArr2.length) return false;
 
     for (int index = 0; index < charArr1.length; index++) {
@@ -143,5 +104,38 @@ public class MyArray {
     }
 
     return count;
+  }
+
+  public static void main(String[] args) {
+    printArray(range(1, 5));
+    printArray(range(1, 10, 2));
+    printArray(range(5, 1, -1));
+
+    printArray(repeat(5, 4));
+    printArray(repeat(3, 6));
+
+    System.out.println(getHighest(range(1, 5)));
+    System.out.println(getHighest(range(10, 5, -1)));
+
+    System.out.println(getAverage(range(1, 5))); // 2.5
+    System.out.println(getAverage(range(1, 10, 2))); // 5
+
+    int[] numbers = { 1, 1, 3 };
+    System.out.println(isAscending(numbers));
+    System.out.println(isAscending(range(1, 5)));
+
+    char[] chars1 = { 'a', 'b', 'c', 'd' };
+    char[] chars2 = { 'a', 'b', 'c', 'd' };
+    char[] chars3 = { 'a', 'b' };
+    char[] chars4 = { 'a', 'b', 'c', 'e' };
+
+    System.out.println(areEqual(chars1, chars2));
+    System.out.println(areEqual(chars1, chars3));
+    System.out.println(areEqual(chars1, chars4));
+
+    printArray(concat(range(1, 5), range(5, 0, -1)));
+
+    int[] array = { 1, 2, 0, 2, 3, 0, 0, 2 };
+    printArray(removeZeroes(array));
   }
 }
