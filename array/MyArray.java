@@ -28,6 +28,9 @@ public class MyArray {
     System.out.println(areCharactersEqual(chars1, chars4));
 
     printArray(concat(range(1, 5), range(5, 0, -1)));
+
+    int[] array = { 1, 2, 0, 2, 3, 0, 0, 2 };
+    printArray(removeZeroes(array));
   }
 
   public static void printArray(int[] numbers) {
@@ -117,5 +120,28 @@ public class MyArray {
     }
 
     return allNumbers;
+  }
+
+  public static int[] removeZeroes(int[] numbers) {
+    int[] newList = new int[countNonZero(numbers)];
+
+    int count = 0;
+    for (int number : numbers) {
+      if (number > 0) {
+        newList[count] = number;
+        count++;
+      }
+    }
+
+    return newList;
+  }
+
+  public static int countNonZero(int[] numbers) {
+    int count = 0;
+    for (int number : numbers) {
+      if (number > 0) count += 1;
+    }
+
+    return count;
   }
 }
