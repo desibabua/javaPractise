@@ -1,25 +1,35 @@
 public class Calculator {
 
-  private double sum(int operand1, int operand2) {
-    return (operand1 + operand2);
-  }
-
-  private double evaluate(int operand1, int operand2, String operator) {
+  private double evaluate(double operand1, double operand2, char operator) {
     switch (operator) {
-      case "+":
-        return sum(operand1, operand2);
+      case '+':
+        return operand1 + operand2;
+      case '-':
+        return operand1 - operand2;
+      case 'x':
+        return operand1 * operand2;
+      case '/':
+        return operand1 / operand2;
       default:
         return 0;
     }
   }
 
+  public static char getOperator(String operator) {
+    // if (!operator.matches("^[+-x/]$")) {
+    //   throw error "$operator Operator is not available in calculator"
+    // }
+    return operator.charAt(0);
+  }
+
   public static void main(String[] args) {
-    int operand1 = Integer.parseInt(args[0]);
-    int operand2 = Integer.parseInt(args[1]);
-    String operator = args[2];
+    double operand1 = Double.parseDouble(args[0]);
+    double operand2 = Double.parseDouble(args[1]);
+    char operator = getOperator(args[2]);
 
     Calculator calc = new Calculator();
     double result = calc.evaluate(operand1, operand2, operator);
+
     System.out.println(result);
   }
 }
