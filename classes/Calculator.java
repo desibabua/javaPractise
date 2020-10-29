@@ -1,11 +1,11 @@
 public class Calculator {
   private double result;
 
-  private Calculator(double initialResult) {
+  public Calculator(double initialResult) {
     this.result = initialResult;
   }
 
-  private double evaluate(double operand, char operator) {
+  public double evaluate(double operand, char operator) {
     switch (operator) {
       case '+':
         this.result += operand;
@@ -23,7 +23,7 @@ public class Calculator {
     return this.result;
   }
 
-  private double getCurrentResult() {
+  public double getCurrentResult() {
     return this.result;
   }
 
