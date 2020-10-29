@@ -1,21 +1,33 @@
 public class Calculator {
+  private double result;
 
-  private double evaluate(double operand1, double operand2, char operator) {
-    switch (operator) {
-      case '+':
-        return operand1 + operand2;
-      case '-':
-        return operand1 - operand2;
-      case 'x':
-        return operand1 * operand2;
-      case '/':
-        return operand1 / operand2;
-      default:
-        return 0;
-    }
+  private Calculator(double initialResult) {
+    this.result = initialResult;
   }
 
-  public static char getOperator(String operator) {
+  private double evaluate(double operand, char operator) {
+    switch (operator) {
+      case '+':
+        this.result += operand;
+        break;
+      case '-':
+        this.result -= operand;
+        break;
+      case 'x':
+        this.result *= operand;
+        break;
+      case '/':
+        this.result /= operand;
+        break;
+    }
+    return this.result;
+  }
+
+  private double getCurrentResult() {
+    return this.result;
+  }
+
+  public static char parseOperator(String operator) {
     // if (!operator.matches("^[+-x/]$")) {
     //   throw error "$operator Operator is not available in calculator"
     // }
@@ -23,13 +35,16 @@ public class Calculator {
   }
 
   public static void main(String[] args) {
-    double operand1 = Double.parseDouble(args[0]);
-    double operand2 = Double.parseDouble(args[1]);
-    char operator = getOperator(args[2]);
+    double initialResult = args.length > 0 ? Double.parseDouble(args[0]) : 0;
+    Calculator calc = new Calculator(initialResult);
 
-    Calculator calc = new Calculator();
-    double result = calc.evaluate(operand1, operand2, operator);
+    for (int index = 1; index < args.length; index += 2) {
+      char operator = parseOperator(args[index]);
+      double operand = Double.parseDouble(args[index + 1]);
 
-    System.out.println(result);
+      calc.evaluate(operand, operator);
+    }
+
+    System.out.println(calc.getCurrentResult());
   }
 }
